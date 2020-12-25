@@ -285,7 +285,7 @@ li .dropbtn {
     clear: none;
 }
 
-.product-wrap{
+.product-wrap {
     width: 80%;
     margin: 7% auto;
     display: flex;
@@ -293,46 +293,46 @@ li .dropbtn {
     justify-content: space-between;
 }
 
-.product-wrap img{
+.product-wrap img {
     width: 500px;
     height: 700px;
 }
 
-.left{
+.left {
     width: 40%;
 }
 
-.pr-detail-title{
+.pr-detail-title {
     font-weight: 400;
-    color: #565959!important;
-    font-family: Arial,sans-serif;
+    color: #565959 !important;
+    font-family: Arial, sans-serif;
     padding-bottom: 20px;
 }
 
-.pr-detail-price{
-    color: #565959!important;
-    font-family: Arial,sans-serif;
+.pr-detail-price {
+    color: #565959 !important;
+    font-family: Arial, sans-serif;
     margin-bottom: 30px;
 }
 
-.price-value{
+.price-value {
     font-weight: 500;
     font-size: 20px;
     color: red;
 }
 
-.pr-detail-desc{
-    color: #565959!important;
-    font-family: Arial,sans-serif;
+.pr-detail-desc {
+    color: #565959 !important;
+    font-family: Arial, sans-serif;
     margin-top: 15px;
 }
 
-.right{
+.right {
     width: 60%;
     margin-left: 50px;
 }
 
-.rating-container{
+.rating-container {
     display: flex;
     flex-direction: row;
     margin-bottom: 30px;
@@ -340,18 +340,64 @@ li .dropbtn {
     border-bottom: 1px solid #8a8989;
 }
 
-.rating-container i{
+.rating-container i {
     color: orange;
     margin-right: 5px;
 }
 
-.rating-amount{
+.rating-amount {
     color: #5353c4;
     margin-left: 30px;
 }
 
-.item-wrap{
+.item-wrap {
     width: fit-content;
     margin: 0 auto;
     margin-top: 30px;
 }
+
+/***
+ *  Simple Pure CSS Star Rating Widget Bootstrap 4
+ *
+ *  www.TheMastercut.co
+ *
+ ***/
+
+/*@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);*/
+
+/* Styling h1 and links
+––––––––––––––––––––––––––––––––– */
+
+@import url("https://use.fontawesome.com/releases/v5.15.0/css/all.css");
+
+
+.starrating > input {
+    display: none;
+}
+
+/* Remove radio buttons */
+
+.starrating > label:before {
+    content: "\f005"; /* Star */
+    margin: 2px;
+    font-size: 1.3em;
+    font-family: "Font Awesome 5 Free";
+    display: inline-block;
+}
+
+.starrating > label {
+    color: #222222; /* Start color when not clicked */
+}
+
+.starrating > input:checked ~ label {
+    color: #ffca08;
+}
+
+/* Set yellow color when star checked */
+
+.starrating > input:hover ~ label {
+    color: #ffca08;
+}
+
+/* Set yellow color when star hover */
+
