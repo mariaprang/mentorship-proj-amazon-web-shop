@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head th:replace="fragments/header :: head"> </head>
+
+<body>
+<div>
+    <header th:replace="fragments/navigation :: navbar"></header>
+
+    <div th:each="product : ${allProducts}">
+        <div class="box">
+
+            <h1 th:text="${product.productTitle}"> </h1>
+            <p th:text="${product.description}"> </p>
+<!--            <div class="pic" style="background-image: url('image/shoe.png');"></div>-->
+            <img th:src="${product.imagePath}" class="pic">
+            <div class="info">
+<!--                <div class="price" th:text="${product.productPrice}"></div>-->
+                <form th:action="@{/viewDetailedProductInfo}" class="item-wrap">
+                    <input class="Add" type="submit" value="View more">
+                    <input type="hidden" name="product-id" th:value="${product.id}"/>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

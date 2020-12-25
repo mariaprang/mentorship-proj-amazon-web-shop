@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css"
+          th:href="@{css/register.css}" media="screen">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+ <form th:action="@{/registerUser}" class="register-form">
+    <div class="reg-text"> Register </div>
+    <input type="text" name="first-name" placeholder="First name">
+    <input type="text" name="last-name" placeholder="Last name">
+    <input type="email" name="email" placeholder="Email">
+    <input type="text" name="password" placeholder="Password">
+    <input type="text" name="password-repeat" placeholder="Confirm password">
+    <input class="btn" type="submit" value="Register">
+</form>
+
+<div th:if="${param.error}" class="alert alert-danger">
+    Passwords do not match
+</div>
+
+</body>
+</html>

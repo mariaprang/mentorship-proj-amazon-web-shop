@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="fragments/header :: head"></head>
+<body>
+
+<header th:replace="fragments/navigation :: navbar"></header>
+
+<div class="product-wrap">
+
+    <img th:src="${product.imagePath}" class="left">
+    <div class="right">
+        <h1 class="pr-detail-title" th:text="${product.productTitle}"></h1>
+        <div class="rating-container">
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+            <i class="far fa-star"></i>
+
+            <div class="rating-amount" th:text="${'Total ratings: '+product.rating}"></div>
+        </div>
+        <div class="pr-detail-price">
+            <span>Price:</span>
+            <span class="price-value" th:text="${product.productPrice}"></span>
+        </div>
+
+        <span style="font-width: bolder;">Details:</span>
+        <div class="pr-detail-desc" th:text="${product.detailedDescription}"></div>
+
+        <form th:action="@{/addProductToCart}">
+            <input type="hidden" name="product-id" th:value="${product.id}"/>
+            <button type="submit" class="btn btn-warning">
+                <i class="fas fa-cart-plus"></i> Add to cart
+            </button>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>
