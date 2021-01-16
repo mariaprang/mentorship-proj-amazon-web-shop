@@ -10,23 +10,6 @@
     <img th:src="${product.imagePath}" class="left">
     <div class="right">
         <h1 class="pr-detail-title" th:text="${product.productTitle}"></h1>
-        <!--        <div class="rating-container">-->
-        <!--            <i class="far fa-star"></i>-->
-        <!--            <i class="far fa-star"></i>-->
-        <!--            <i class="far fa-star"></i>-->
-        <!--            <i class="far fa-star"></i>-->
-        <!--            <i class="far fa-star"></i>-->
-
-        <!--            <div class="rating-amount" th:text="${'Total ratings: '+product.rating}"></div>-->
-        <!--        </div>-->
-
-        <!--        <form class="mt-5">-->
-
-        <!--            <input value="0" type="hidden" class="rating" data-glyphicon="0">-->
-
-        <!--            <button class="btn btn-primary" type="submit">Submit form</button>-->
-        <!--        </form>-->
-
 
         <div class="rating-container">
             <div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
@@ -38,7 +21,8 @@
             </div>
 
             <a th:href="@{/showRatingsFor/{productId}(productId = ${product.id})}" class="ratings"
-               th:text="${product.ratings + ' ratings'}"></a>
+               th:text="${ratingSize + ' ratings'}"></a>
+
         </div>
 
         <div class="pr-detail-price">

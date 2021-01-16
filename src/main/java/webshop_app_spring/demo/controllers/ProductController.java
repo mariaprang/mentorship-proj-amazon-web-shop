@@ -33,7 +33,7 @@ public class ProductController {
                                           Model model) {
         Product product = productService.findProductById(productId);
         model.addAttribute("product", product);
-        System.out.println("-------------------- !!! " + ratingService.findReviewsByProductId(productId) + " !!! -------------------- ");
+        model.addAttribute("ratingSize", ratingService.findReviewsByProductId(productId).size());
         return "product-details";
     }
 
@@ -52,5 +52,7 @@ public class ProductController {
         model.addAttribute("product", product);
         return "product-rating";
     }
+
+
 
 }
