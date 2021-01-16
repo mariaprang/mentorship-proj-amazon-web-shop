@@ -6,6 +6,7 @@ public enum ProductCategory {
     FOOD("Food"),
     HEALTH_CARE("Health care"),
     CLOTHING("Clothing"),
+    SHOES("Shoes"),
     SPORTS("Sports"),
     ELECTRONICS("Electronics");
 

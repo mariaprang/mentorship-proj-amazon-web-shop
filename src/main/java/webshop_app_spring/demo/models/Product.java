@@ -1,9 +1,8 @@
 package webshop_app_spring.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,13 +19,20 @@ public class Product extends BaseEntity {
     private boolean forMen;
     private boolean forWomen;
     private double rating;
+    @OneToMany(mappedBy="ratedProduct")
+    private List<Rating> productReviews;
+
+    private int ratings;
+
+    private ArrayList<User> usersPurchasedTheProduct;
 
     @ManyToOne
     private Cart cart;
 
     public Product() {
+        this.usersPurchasedTheProduct = new ArrayList<>();
+        this.productReviews = new ArrayList<>();
     }
-
 
     public Product(String productTitle, double productPrice, String description, String imagePath,
                    ProductCategory productCategory, boolean kids, boolean women, boolean men) {
@@ -36,8 +42,22 @@ public class Product extends BaseEntity {
         this.imagePath = imagePath;
         this.productCategory = productCategory;
         this.rating = 0;
+        this.ratings = 0;
+        this.usersPurchasedTheProduct = new ArrayList<>();
+        this.productReviews = new ArrayList<>();
     }
 
+    public List<Rating> getProductReviews() {
+        return productReviews;
+    }
+
+    public int getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(int ratings) {
+        this.ratings = ratings;
+    }
     public double getRating() {
         return rating;
     }

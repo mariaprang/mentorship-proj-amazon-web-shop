@@ -6,4 +6,6 @@ import webshop_app_spring.demo.models.Product;
 
 @Repository
 public interface ProductRepository extends CrudRepository<Product, Long> {
+
+    public Product findProductByProductCategory(String category);
 }

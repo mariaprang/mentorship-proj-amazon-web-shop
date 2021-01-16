@@ -14,11 +14,5 @@ public class CartController {
     @Autowired
     ProductService productService;
 
-    @RequestMapping("/viewDetailedProductInfo")
-    public String viewDetailedProductInfo(@RequestParam("product-id") Long productId,
-                                   Model model){
-        Product product = productService.findProductById(productId);
-        model.addAttribute("product", product);
-        return "product-details";
-    }
+
 }
