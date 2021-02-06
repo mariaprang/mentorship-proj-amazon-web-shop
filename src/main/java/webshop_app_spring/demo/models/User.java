@@ -6,6 +6,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -30,6 +31,14 @@ public class User extends BaseEntity implements UserDetails {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     private Cart userCart;
+
+//    @ManyToMany
+//    @JoinTable(
+//            name = "user_review",
+//            joinColumns = @JoinColumn(name = "username"),
+//            inverseJoinColumns = @JoinColumn(name = "productTitle"))
+//    List<Rating> productRatings;
+
 
     @Transient // <-- means "don't add the fields with transient to database table"
     private boolean accounNonExpried;

@@ -1,9 +1,8 @@
 package webshop_app_spring.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "reviews")
@@ -16,6 +15,9 @@ public class Rating extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false)
     private Product ratedProduct;
+
+//    @OneToMany(mappedBy="cart")
+//    private Set<User> users;
 
     public Rating() {
     }

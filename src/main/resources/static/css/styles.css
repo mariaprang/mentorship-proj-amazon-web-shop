@@ -410,11 +410,41 @@ li .dropbtn {
     color: #ffca08;
 }
 
-.ratings{
+.ratings {
     font-size: 23px;
     color: #007185;
     text-decoration: underline;
     margin: 0 30px;
 }
+
 /* Set yellow color when star hover */
+
+/* START STYLE FOR PRODUCT-RATING */
+
+.product-reviews-wrap {
+    width: 80%;
+    margin: 5% auto;
+}
+
+.review-box {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.stars-wrap{
+    float: left;
+}
+
+.review-title{
+    font-weight: bold;
+}
+
+.stars-wrap{
+    width: 150px;
+}
+
+.item-description{
+    margin: 10px 0;
+}
+/* END STYLE FOR PRODUCT-RATING */
 

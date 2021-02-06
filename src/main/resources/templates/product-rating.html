@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head th:replace="fragments/header :: head"></head>
 
 <body>
 
 <header th:replace="fragments/navigation :: navbar"></header>
 
-<div class="product-wrap">
+<div class="product-reviews-wrap">
+
+    <div class="review-box">
+<!--        <div class="review-author" ></div>-->
+
+        <span sec:authentication="name" class="review-author">
+        <div class="review-wrap">
+            <div class="review-stars">
+                <div class="stars-wrap">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+            </div>
+            <div class="review-title">Love this item!</div>
+        </div>
+        <div class="item-description">Perfect size, a little heavy but I can still sleep with them just fine.
+            Loved that they’re solid with no seams or edges. Worth the money
+        </div>
+    </div>
 
 
 </div>
