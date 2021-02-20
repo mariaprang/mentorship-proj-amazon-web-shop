@@ -87,7 +87,7 @@ public class ProductController {
         rating.setRatedProduct(product);
         ratingService.saveRating(rating);
         productService.saveProduct(product);
-        return "index";
+        return "redirect:/showRatingsFor/"+productId;
     }
 
 

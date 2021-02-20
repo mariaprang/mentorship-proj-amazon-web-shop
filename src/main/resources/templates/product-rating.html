@@ -93,7 +93,7 @@
         <div class="item-description" th:text="${review.comment}"></div>
     </div>
     <div th:if="${purchased}">
-        <form th:href="@{/rateProduct/{productId}(productId = ${product.id})}" class="rating-form">
+        <form th:action="@{/rateProduct/{productId}(productId = ${product.id})}" class="rating-form">
             <div class="stars-wrap">
                 <div class="rating">
                     <input id="star1" name="star" type="radio" value="1" class="radio-btn hide"/>
