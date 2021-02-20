@@ -4,18 +4,84 @@
 
 <body>
 
+<style>
+    .txt-center {
+        text-align: center;
+    }
+
+    .hide {
+        display: none;
+    }
+
+    .clear {
+        float: none;
+        clear: both;
+    }
+
+    .rating {
+        width: 90px;
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        text-align: center;
+        position: relative;
+    }
+
+    .rating > label {
+        float: right;
+        display: inline;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        width: 1.1em;
+        cursor: pointer;
+        color: #000;
+    }
+
+    .rating > label:hover,
+    .rating > label:hover ~ label,
+    .rating > input.radio-btn:checked ~ label {
+        color: transparent;
+    }
+
+    .rating > label:hover:before,
+    .rating > label:hover ~ label:before,
+    .rating > input.radio-btn:checked ~ label:before,
+    .rating > input.radio-btn:checked ~ label:before {
+        content: "\2605";
+        position: absolute;
+        left: 0;
+        color: #FFD700;
+    }
+    .rating-form{
+        display: flex;
+        flex-direction: column;
+        margin: 7% 0;
+    }
+    .input-wrap{
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+    }
+
+    .rating-submit{
+        width: 100px;
+        margin: 20px 0;
+        background-color: #E68A00;
+    }
+</style>
+
 <header th:replace="fragments/navigation :: navbar"></header>
 
 <div class="product-reviews-wrap">
 
     <div class="review-box" th:each="review : ${ratings}">
-<!--        <div class="review-author" ></div>-->
+        <!--        <div class="review-author" ></div>-->
 
         <span sec:authentication="name" class="review-author"></span>
         <div class="review-wrap">
             <div class="review-stars">
                 <div class="stars-wrap">
-                    <i class="fas fa-star"></i>
+
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
@@ -27,7 +93,32 @@
         <div class="item-description" th:text="${review.comment}"></div>
     </div>
     <div th:if="${purchased}">
-        PURCHASED
+        <form th:href="@{/rateProduct/{productId}(productId = ${product.id})}" class="rating-form">
+            <div class="stars-wrap">
+                <div class="rating">
+                    <input id="star1" name="star" type="radio" value="1" class="radio-btn hide"/>
+                    <label for="star1">☆</label>
+                    <input id="star2" name="star" type="radio" value="2" class="radio-btn hide"/>
+                    <label for="star2">☆</label>
+                    <input id="star3" name="star" type="radio" value="3" class="radio-btn hide"/>
+                    <label for="star3">☆</label>
+                    <input id="star4" name="star" type="radio" value="4" class="radio-btn hide"/>
+                    <label for="star4">☆</label>
+                    <input id="star5" name="star" type="radio" value="5" class="radio-btn hide"/>
+                    <label for="star5">☆</label>
+                    <div class="clear"></div>
+                </div>
+            </div>
+            <div class="input-wrap">
+                <label for="headline">Add a headline: </label>
+                <input type="text" id="headline" name="headline">
+            </div>
+            <div class="input-wrap">
+                <label for="comment">Add a comment: </label>
+                <textarea type="text" name="comment" id="comment"></textarea>
+            </div>
+            <input type="submit" value="Submit" class="rating-submit">
+        </form>
     </div>
 
 

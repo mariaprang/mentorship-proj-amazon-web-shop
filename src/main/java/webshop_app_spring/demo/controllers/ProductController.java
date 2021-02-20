@@ -70,8 +70,24 @@ public class ProductController {
         } else {
             model.addAttribute("purchased", false);
         }
+        model.addAttribute("product", product);
 
         return "product-rating";
+    }
+
+    @RequestMapping("/rateProduct/{productId}")
+    public String addRatingForProducT(@PathVariable("productId") long productId,
+                                      @RequestParam("headline") String headline,
+                                      @RequestParam("comment") String comment,
+                                      @RequestParam("star") int star) {
+        Product product = productService.findProductById(productId);
+
+        Rating rating = new Rating(headline, star, comment);
+        product.getProductReviews().add(rating);
+        rating.setRatedProduct(product);
+        ratingService.saveRating(rating);
+        productService.saveProduct(product);
+        return "index";
     }
 
 
