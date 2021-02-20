@@ -8,10 +8,10 @@
 
 <div class="product-reviews-wrap">
 
-    <div class="review-box">
+    <div class="review-box" th:each="review : ${ratings}">
 <!--        <div class="review-author" ></div>-->
 
-        <span sec:authentication="name" class="review-author">
+        <span sec:authentication="name" class="review-author"></span>
         <div class="review-wrap">
             <div class="review-stars">
                 <div class="stars-wrap">
@@ -22,11 +22,12 @@
                     <i class="fas fa-star"></i>
                 </div>
             </div>
-            <div class="review-title">Love this item!</div>
+            <div class="review-title" th:text="${review.headline}"></div>
         </div>
-        <div class="item-description">Perfect size, a little heavy but I can still sleep with them just fine.
-            Loved that they’re solid with no seams or edges. Worth the money
-        </div>
+        <div class="item-description" th:text="${review.comment}"></div>
+    </div>
+    <div th:if="${purchased}">
+        PURCHASED
     </div>
 
 

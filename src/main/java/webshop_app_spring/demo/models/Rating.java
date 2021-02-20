@@ -53,6 +53,14 @@ public class Rating extends BaseEntity {
         this.comment = comment;
     }
 
+    public String getHeadline() {
+        return headline;
+    }
+
+    public void setHeadline(String headline) {
+        this.headline = headline;
+    }
+
     @Override
     public String toString() {
         return "Rating{" +

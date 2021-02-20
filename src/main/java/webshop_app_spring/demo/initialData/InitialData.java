@@ -34,7 +34,8 @@ public class InitialData {
 
         User user = new User("test@gmail.com", passwordEncoder.encode("test"), "Maria", "Prang");
 
-        Rating rating = new Rating("Was good, recommend", 4, "Nice experience");
+        Rating rating = new Rating("Was good, recommend", 4, "Perfect size, a little heavy but I can still sleep with them just fine.\n" +
+                "Loved that they’re solid with no seams or edges. Worth the money");
         Rating rating2 = new Rating("Was not good, don't recommend", 2, "Nice experience");
         Rating rating3 = new Rating("Excellent!", 5, "Nice experience");
         Rating rating4 = new Rating("A 'okay' ", 3, "Nice experience");
@@ -84,7 +85,9 @@ public class InitialData {
         ratingService.saveRating(rating5);
         ratingService.saveRating(rating6);
 
-
+        user.addToPurchasedProducts(product1);
         customerDetailsService.registerUser(user);
+
+
     }
 }

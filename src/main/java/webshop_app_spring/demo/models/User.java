@@ -4,10 +4,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "users")
@@ -51,12 +48,16 @@ public class User extends BaseEntity implements UserDetails {
 
     private Role role;
 
+    @ManyToMany
+    List<Product> purchasedProducts;
+
     public User(){
         this.accounNonExpried = true;
         this.isAccountNonLocked = true;
         this.isCredentialsNonExpired = true;
         this.isEnabled = true;
         this.role = Role.USER;
+        this.purchasedProducts = new ArrayList<>();
     }
 
     public User(String email,String password, String firstname, String lastname) {
@@ -70,6 +71,19 @@ public class User extends BaseEntity implements UserDetails {
         this.isCredentialsNonExpired = true;
         this.isEnabled = true;
         this.role = Role.USER;
+        this.purchasedProducts= new ArrayList<>();
+    }
+
+    public List<Product> getPurchasedProducts() {
+        return purchasedProducts;
+    }
+
+    public void setPurchasedProducts(List<Product> purchasedProducts) {
+        this.purchasedProducts = purchasedProducts;
+    }
+
+    public void addToPurchasedProducts(Product product){
+        this.purchasedProducts.add(product);
     }
 
     public String getEmail() {
